@@ -88,7 +88,7 @@ HTTP_SERVER_PID=$!
 
 # Retrieve the certificate
 export SSL_CERT_FILE
-CERT=$(python ./acme_tiny.py --account-key "$ACCOUNTKEY" --csr "$CSR" --acme-dir "$ACMEDIR" --directory-url "$DIRECTORY_URL" --check_port "$CHECK_PORT")
+CERT=$(python ./acme_tiny.py --account-key "$ACCOUNTKEY" --csr "$CSR" --acme-dir "$ACMEDIR" --directory-url "$DIRECTORY_URL" --check-port "$CHECK_PORT")
 
 kill -9 "$HTTP_SERVER_PID"
 
