@@ -11,6 +11,7 @@ ACMEDIR="$LOCALDIR/.well-known/acme-challenge"
 DIRECTORY_URL="https://acme-v02.api.letsencrypt.org/directory"
 SSL_CERT_FILE="$LOCALDIR/ca-certificates.crt"
 RENEW_DAYS=30
+CHECK_PORT=80
 
 ACCOUNTKEY="esxi_account.key"
 KEY="esxi.key"
@@ -87,7 +88,7 @@ HTTP_SERVER_PID=$!
 
 # Retrieve the certificate
 export SSL_CERT_FILE
-CERT=$(python ./acme_tiny.py --account-key "$ACCOUNTKEY" --csr "$CSR" --acme-dir "$ACMEDIR" --directory-url "$DIRECTORY_URL")
+CERT=$(python ./acme_tiny.py --account-key "$ACCOUNTKEY" --csr "$CSR" --acme-dir "$ACMEDIR" --directory-url "$DIRECTORY_URL" --check_port "$CHECK_PORT")
 
 kill -9 "$HTTP_SERVER_PID"
 
